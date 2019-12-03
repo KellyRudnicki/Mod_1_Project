@@ -1,3 +1,5 @@
-development:
+
+development: 
   adapter: sqlite3
-  database: db/fantasy_league.sqlite3
+  database: db/fantasy_league.sqlite3 
+  

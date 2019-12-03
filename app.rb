@@ -1,5 +1,2 @@
-
-#Comment 
-
-#hey this is a comment from Ben
-
+class App 
+end
