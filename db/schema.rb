@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_03_230115) do
+ActiveRecord::Schema.define(version: 2019_12_04_215642) do
 
   create_table "fantasy_teams", force: :cascade do |t|
     t.string "team_name"
+    t.integer "league_id"
+    t.index ["league_id"], name: "index_fantasy_teams_on_league_id"
+  end
+
+  create_table "league_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "league_id"
+    t.index ["league_id"], name: "index_league_users_on_league_id"
+    t.index ["user_id"], name: "index_league_users_on_user_id"
+  end
+
+  create_table "leagues", force: :cascade do |t|
+    t.string "league_name"
   end
 
   create_table "player_teams", force: :cascade do |t|
@@ -30,6 +43,12 @@ ActiveRecord::Schema.define(version: 2019_12_03_230115) do
     t.integer "goals"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+  end
+
+  add_foreign_key "league_users", "leagues"
+  add_foreign_key "league_users", "users"
   add_foreign_key "player_teams", "fantasy_teams"
   add_foreign_key "player_teams", "players"
 end
