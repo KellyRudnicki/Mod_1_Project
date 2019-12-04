@@ -1,6 +1,6 @@
 class PlayerTeam < ActiveRecord::Base
 
-    belongs_to :players
-    belongs_to :fantasy_teams
+    belongs_to :player
+    belongs_to :fantasy_team
 
 end 

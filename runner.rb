@@ -1,5 +1,7 @@
 require_relative 'config/environment'
 
-binding.pry
-0
+# binding.pry
+app = App.new
+app.start_game
+# 0
 
