@@ -4,44 +4,32 @@ class App
     #make a user class
 
     def start_game
-        binding.pry
         puts "Welcome to Fantasy Hockey! What is your username?"
         #think of more creative name
         user_input = gets.chomp
         @user = User.create(username: user_input)
         puts "Welcome #{@user.username}!" 
-        # puts "Welcome #{@user.username}."
         welcome_menu
     end 
 
     def welcome_menu
-        # prompt = TTY::Prompt.new
-        # prompt.select("What would you like to do?", ["Create a League", "Join a League", "View your League(s)", "Quit"]) 
+        prompt = TTY::Prompt.new
+        user_input = prompt.select("What would you like to do?", ["Create a League", "Join a League", "View your League(s)", "Quit"]) 
+        
+        @all_leagues = League.all.map{|league| league.league_name}
 
-    # def welcome_menu
-    #     #binding.pry 
-        puts "What would you like to do?"
-        puts "1. Create a League"
-        puts "2. Join a League"
-        puts "3. View your League(s)"
-        puts "4. Quit"
-
-        user_input = gets.chomp
         if user_input == "Create a League"
             create_league_menu
         elsif user_input == "Join a League"
-            @all_leagues = League.all.map{|league| league.league_name}
             puts @all_leagues
             join_league
-            #join_league 
-            #CREATE JOIN LEAGUE MENU
         elsif user_input == "View your League(s)"
-            puts all_leagues
+            puts @all_leagues
         elsif user_input == "Quit"
             exit 
         else
-            puts "Not a valid option"
-            #welcome_menu
+            puts "Sorry that's not a valid option, please try again!"
+            welcome_menu
         end 
     end 
 
