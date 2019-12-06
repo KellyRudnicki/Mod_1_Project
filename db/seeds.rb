@@ -26,9 +26,3 @@ FantasyTeam.destroy_all
 # PlayerTeam.create(player_id: player1.id, fantasy_team_id: fantasy_team4.id)
 # PlayerTeam.create(player_id: player2.id, fantasy_team_id: fantasy_team4.id)
 
-response = RestClient.get("https://rickandmortyapi.com/api/character/")
-result = JSON.parse(response)
-
-result["results"].map do |character|
-    Player.create(name: character["name"], position: "defenseman", points: 17, goals: 2)
-end 
