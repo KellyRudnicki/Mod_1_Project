@@ -16,3 +16,7 @@ gem "require_all", "~> 3.0"
 gem "rest-client", "~> 2.1"
 gem "tty-prompt", "~> 0.20.0"
 gem "tty-link", "~> 0.1.0"
+gem 'colorize'
+gem 'pastel'
+
+gem "tty-font", "~> 0.4.0"
