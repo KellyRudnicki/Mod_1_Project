@@ -30,8 +30,8 @@ class App
             elsif user_input == "Skip to Team Menu"
                 team_menu
             else user_input == "Quit"
+                pid = fork{exec 'killall', "afplay"}
                 exit 
-            main_menu
         end 
     end 
 
